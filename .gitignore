@@ -1,0 +1,6 @@
+# runtime-generated files (not source)
+*.log
+*.wav
+*.meta.json
+__pycache__/
+.claude/settings.local.json
