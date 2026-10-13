@@ -6,6 +6,19 @@ USB-C로 Mac에 상시 연결된 Beats Pill(또는 비슷하게 무신호 시 �
 20초 간격으로 사람 귀에는 거의 들리지 않는 19kHz 근처의 저진폭 사인파 핑(ping)을
 현재 macOS 기본 출력 장치로 재생해서, 스피커의 auto-sleep 타이머를 계속 리셋시킵니다.
 
+## 빠른 시작
+
+1. 터미널에서 설치 명령을 실행합니다.
+   ```bash
+   curl -fsSL https://raw.githubusercontent.com/travisherpaz/beats-pill-keepalive/main/install.sh | bash
+   ```
+2. **시스템 설정 > 사운드**에서 출력 장치를 Beats Pill로 지정합니다.
+3. 끝. 로그인할 때마다 자동으로 실행되며, 별도로 켜거나 끌 필요가 없습니다.
+
+- 필요 환경: macOS, `git`, `python3` (없으면 `xcode-select --install`)
+- 동작 확인: `tail ~/Library/"Application Support"/BeatsKeepAlive/keepalive.log`
+- 제거: `~/.local/share/beats-pill-keepalive/uninstall.sh`
+
 ## 동작 방식
 
 - `beats_keepalive.py`가 `~/Library/Application Support/BeatsKeepAlive/`에
@@ -17,24 +30,7 @@ USB-C로 Mac에 상시 연결된 Beats Pill(또는 비슷하게 무신호 시 �
 - 상수(`AMPLITUDE`, `FREQUENCY_HZ`, `INTERVAL_SEC` 등)를 바꾸면 다음 실행 시
   자동으로 무음 파일을 재생성합니다 (수동 삭제 불필요).
 
-## 설치
-
-### 한 줄 설치 (권장)
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/travisherpaz/beats-pill-keepalive/main/install.sh | bash
-```
-
-`~/.local/share/beats-pill-keepalive`에 클론하고 LaunchAgent를 등록해 바로 실행합니다.
-같은 명령을 다시 실행하면 최신 버전으로 업데이트됩니다. 제거는 다음과 같이 합니다.
-
-```bash
-~/.local/share/beats-pill-keepalive/uninstall.sh
-```
-
-macOS 사운드 설정에서 출력 장치를 Beats Pill로 지정해두어야 합니다.
-
-### 수동 설치
+## 수동 설치 (선택)
 
 1. 이 저장소를 원하는 위치에 클론합니다.
 2. `com.local.beatskeepalive.plist.template`을 복사해서
