@@ -19,6 +19,23 @@ USB-C로 Mac에 상시 연결된 Beats Pill(또는 비슷하게 무신호 시 �
 
 ## 설치
 
+### 한 줄 설치 (권장)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/travisherpaz/beats-pill-keepalive/main/install.sh | bash
+```
+
+`~/.local/share/beats-pill-keepalive`에 클론하고 LaunchAgent를 등록해 바로 실행합니다.
+같은 명령을 다시 실행하면 최신 버전으로 업데이트됩니다. 제거는 다음과 같이 합니다.
+
+```bash
+~/.local/share/beats-pill-keepalive/uninstall.sh
+```
+
+macOS 사운드 설정에서 출력 장치를 Beats Pill로 지정해두어야 합니다.
+
+### 수동 설치
+
 1. 이 저장소를 원하는 위치에 클론합니다.
 2. `com.local.beatskeepalive.plist.template`을 복사해서
    `~/Library/LaunchAgents/com.local.beatskeepalive.plist`로 저장하고,
